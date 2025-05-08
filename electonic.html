@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aman Mobiles</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+     
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        width: 90%;
+      }
+    }
+    .heading:hover{
+          transform: scale(1.05);
+          color: white;
+        }
+        .b-radius{
+          border-radius: 10px;
+        }
+        .bg-image2{
+        background-image: url(image/bg5.jpg);
+        background-size: cover;
+        background-position: 100%;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+      }
+  </style>
+</head>
+<body class="bg-gray-50 w-100">
+
+    <nav class="text-light shadow-md px-4 py-3 bg-gray-800 w-100 ">
+      <div class="max-w-7xl mx-auto flex items-center justify-between ">
+        <!-- Logo -->
+        <div class="text-2xl font-bold text-orange-600 h1"><a href="about.html" class="hover:text-white">Aman Mobiles</a> </div>
+  
+        <!-- Search Bar -->
+        <div class="hidden md:flex flex-1 w-100 mx-6">
+          
+          <input type="text" placeholder="Aman Mobiles..."
+            class="w-full border border-gray-300 rounded-l-md px-4 py-2 focus:outline-none text-black " />
+          <button class="bg-orange-500 text-white px-4 rounded-r-md">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </button>
+        </div>
+  
+        <!-- Menu + Icons -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="hover:text-blue-500">Home</a>
+          <a href="shop.html" class="hover:text-blue-500">Shop</a>
+          <a href="index.html" class="hover:text-blue-500">About</a>
+          <a href="contact.html" class="hover:text-blue-500">Contact</a>
+          <i data-lucide="shopping-cart" class="w-5 h-5 cursor-pointer"></i>
+          <button class="border px-4 py-1 rounded-md hover:bg-blue-50 hover:bg-gray-50 hover:text-black"><a href="sign.html">Sign In</a></button>
+        </div>
+  
+        <!-- Hamburger Icon -->
+        <button class="md:hidden" id="menu-toggle">
+          <i data-lucide="menu" class="w-6 h-6 text-white"> Cart</i>
+        </button>
+      </div>
+  
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden flex-col px-4 pt-4 pb-2 space-y-2 bg-white shadow-md">
+        <input type="text" placeholder="Search..."
+          class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none" />
+        <a href="index.html" class="block text-gray-700 hover:text-blue-500">Home</a>
+        <a href="shop.html" class="block text-gray-700 hover:text-blue-500">Shop</a>
+        <a href="about.html" class="block text-gray-700 hover:text-blue-500">About</a>
+        <a href="contact.html" class="block text-gray-700 hover:text-blue-500">Contact</a>
+        <div class="flex justify-between items-center">
+          <i data-lucide="shopping-cart" class="w-5 h-5 text-black">Cart</i>
+          <button class="border px-4 py-1 rounded-md hover:bg-black-50 hover:text-black">Sign In</button>
+        </div>
+      </div>
+    </nav>
+    
+   
+  
+    <!-- Fixed Sub Navbar -->
+    <nav class=" left-0 w-full bg-gray-800 border-b shadow-sm text-white px-4 py-3 z-40 fs-1 fw-bold border-top">
+      <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-4 text-sm sm:text-base overflow-x-auto ">
+        <a href="index.html" class="hover:text-blue-600 hover:border whitespace-nowrap">Home</a>
+        <a href="electonic.html" class="hover:text-blue-600 hover:border whitespace-nowrap">Electronics</a>
+        <a href="computer.html" class="hover:text-blue-600 hover:border whitespace-nowrap">Computers</a>
+        <a href="laptop.html " class="hover:text-blue-600 hover:border whitespace-nowrap">Laptops</a>
+        <a href="tablet.html " class="hover:text-blue-600 hover:border whitespace-nowrap">Tablets</a>
+        <a href="offers.html" class="hover:text-blue-600 hover:border whitespace-nowrap">Offers</a>
+        <a href="new-arrivals.html" class="hover:text-blue-600 hover:border whitespace-nowrap">New Arrivals</a>
+      </div>
+    </nav>
+  
+   
+  
+      
+    </main class="w-100 ">
+    
+    <header class="bg-image2 mb-0" >
+      <div class="heading d-flex justify-content-center align-items-center pt-5 "> <h2 class="font-bold fs-2 mb-5 text-white  text-decoration-underline text-center w-25 bg-orange-800 b-radius ">
+       Electronics
+      </h2></div>
+      
+    
+      <div class="product-grid ">
+        <div class="card">
+          <img src="image/elec3-removebg-preview.png" alt="CPU">
+          <div class="card-content text-center fs-0.99 fw-bold">
+            <h3>CPU</h3>
+            <p>Electronics</p>
+            <div class="price">14,999 PKR</div>
+          </div>
+        </div>
+    
+        <div class="card">
+          <img src="image/keybord-removebg-preview.png" alt="keybord">
+          <div class="card-content text-center fs-0.99 fw-bold">
+            <h3>Keyboard</h3>
+            <p>Wireless</p>
+            <div class="price">55,99 PKR</div>
+          </div>
+        </div>
+    
+        <div class="card">
+          <img src="image/headphone-removebg-preview.png" alt="Headphones">
+          <div class="card-content text-center fs-0.99 fw-bold">
+            <h3>Wireless Headphones</h3>
+            <p>Noise Cancelling, 30hr Battery Life</p>
+            <div class="price">2,499 PKR</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="image/elec6-removebg-preview.png" alt="Headphones">
+          <div class="card-content text-center fs-0.99 fw-bold">
+            <h3>Electronics</h3>
+            <p>Noise Cancelling, 30hr Battery Life</p>
+            <div class="price">2,499 PKR</div>
+          </div>
+        </div>
+      </div>
+      
+      
+
+      <!-- <div class="heading d-flex justify-content-center align-items-center mt-5 "> <h2 class="font-bold fs-2 mb-6 text-white  text-decoration-underline text-center w-25 bg-orange-800 b-radius ">
+        Electronics
+       </h2></div> -->
+       <!-- Repeat-section -->
+     
+       <div class="product-grid pt-5 ">
+         <div class="card">
+           <img src="image/elec-removebg-preview.png" alt="CPU">
+           <div class="card-content text-center fs-0.99 fw-bold">
+             <h3>Electronics</h3>
+             <p>USB, Camera,etc</p>
+             <div class="price">14,999 PKR</div>
+           </div>
+         </div>
+     
+         <div class="card pt-5">
+           <img src="image/elec1-removebg-preview.png" alt="keybord">
+           <div class="card-content text-center fs-0.99 fw-bold">
+             <h3>Electronics</h3>
+             <p>Wireless</p>
+             <div class="price">55,99 PKR</div>
+           </div>
+         </div>
+     
+         <div class="card pt-5">
+           <img src="image/elec4-removebg-preview.png" alt="Headphones">
+           <div class="card-content text-center fs-0.99 fw-bold">
+             <h3>Electronics</h3>
+             <p>Noise Cancelling, 30hr Battery Life</p>
+             <div class="price">2,499 PKR</div>
+           </div>
+         </div>
+         <div class="card pt-5 ">
+          <img src="image/elec5-removebg-preview.png" alt="Headphones">
+          <div class="card-content text-center fs-0.99 fw-bold">
+            <h3>Electronics</h3>
+            <p>Noise Cancelling, 30hr Battery Life</p>
+            <div class="price">2,499 PKR</div>
+          </div>
+        </div>
+       </div>
+      </header>
+  
+    <footer class="bg-gray-800 text-gray-200 border-top w-100 ">
+      <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        
+        <!-- Company Info -->
+        <div>
+          <h2 class="text-xl font-semibold mb-4 text-orange-600 fs-2">Aman Mobiles</h2>
+          <p>Your go-to place for quality products at great prices. Shop with confidence.</p>
+        </div>
+  
+        <!-- Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="shop.html" class="hover:underline">Shop</a></li>
+            <li><a href="about.html" class="hover:underline">About</a></li>
+            <li><a href="contact.html" class="hover:underline">Contact</a></li>
+          </ul>
+        </div>
+  
+        <!-- Help -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Customer Service</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">FAQ</a></li>
+            <li><a href="#" class="hover:underline">Shipping</a></li>
+            <li><a href="#" class="hover:underline">Returns</a></li>
+            <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+          </ul>
+        </div>
+  
+        <!-- Contact -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Contact Us</h3>
+          <p>Email: Amanmobiles@mystore.com</p>
+          <p>Phone: +92 123 456 7890</p>
+          <div class="flex space-x-4 mt-3">
+            <a href="#" class="hover:text-white">Facebook</a>
+            <a href="#" class="hover:text-white">Twitter</a>
+            <a href="#" class="hover:text-white">Instagram</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="bg-gray-700 text-center py-4 text-sm">
+        &copy; 2025 Aman Moblies. All rights reserved.
+      </div>
+    </footer>
+    <script>
+      lucide.createIcons();
+  
+      const toggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+  
+      toggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  
+  </body>
+</html>
